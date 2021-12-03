@@ -1,2 +1,2 @@
-# barcodes-redirect-page
+# Landing/Redirect Page for Barcodes
  
