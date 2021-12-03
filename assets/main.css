@@ -1,0 +1,191 @@
+/**
+ * 1. Add border box sizing in all browsers (opinionated).
+ * 2. Backgrounds do not repeat by default (opinionated).
+ */
+
+*,
+::before,
+::after {
+	box-sizing: border-box; /* 1 */
+	background-repeat: no-repeat; /* 2 */
+}
+
+/**
+ * 1. Add text decoration inheritance in all browsers (opinionated).
+ * 2. Add vertical alignment inheritance in all browsers (opinionated).
+ */
+
+::before,
+::after {
+	text-decoration: inherit; /* 1 */
+	vertical-align: inherit; /* 2 */
+}
+
+/**
+ * 1. Use the default cursor in all browsers (opinionated).
+ * 2. Change the line height in all browsers (opinionated).
+ * 3. Breaks words to prevent overflow in all browsers (opinionated).
+ * 4. Use a 4-space tab width in all browsers (opinionated).
+ * 5. Remove the grey highlight on links in iOS (opinionated).
+ * 6. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+:where(:root) {
+	cursor: default; /* 1 */
+	line-height: 1.5; /* 2 */
+	overflow-wrap: break-word; /* 3 */
+	-moz-tab-size: 4; /* 4 */
+	tab-size: 4; /* 4 */
+	-webkit-tap-highlight-color: transparent; /* 5 */
+	-webkit-text-size-adjust: 100%; /* 6 */
+	text-size-adjust: 100%; /* 6 */
+}
+
+/* Sections
+ * ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+:where(body) {
+	margin: 0;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Edge, Firefox, and Safari.
+ */
+
+:where(h1) {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+/* Grouping content
+ * ========================================================================== */
+
+/**
+ * Remove the margin on nested lists in Chrome, Edge, and Safari.
+ */
+
+:where(dl, ol, ul) :where(dl, ol, ul) {
+	margin: 0;
+}
+
+/**
+ * 1. Correct the inheritance of border color in Firefox.
+ * 2. Add the correct box sizing in Firefox.
+ */
+
+:where(hr) {
+	color: inherit; /* 1 */
+	height: 0; /* 2 */
+}
+
+/**
+ * Remove the list style on navigation lists in all browsers (opinionated).
+ */
+
+:where(nav) :where(ol, ul) {
+	list-style-type: none;
+	padding: 0;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ * 3. Prevent overflow of the container in all browsers (opinionated).
+ */
+
+:where(pre) {
+	font-family: monospace, monospace; /* 1 */
+	font-size: 1em; /* 2 */
+	overflow: auto; /* 3 */
+}
+
+html {
+	font-family: system-ui, /* macOS 10.11-10.12 */ -apple-system,
+		/* Windows 6+ */ 'Segoe UI', /* Android 4+ */ 'Roboto',
+		/* Ubuntu 10.10+ */ 'Ubuntu', /* Gnome 3+ */ 'Cantarell',
+		/* KDE Plasma 5+ */ 'Noto Sans', /* fallback */ sans-serif,
+		/* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
+		/* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
+	min-height: 100%;
+}
+
+/* @link https://utopia.fyi/type/calculator?c=400,16,1.2,1440,18,1.25,6,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+:root {
+	--step--1: clamp(0.83rem, 0.81rem + 0.1vw, 0.9rem);
+	--step-0: clamp(1rem, 0.95rem + 0.19vw, 1.13rem);
+	--step-1: clamp(1.2rem, 1.12rem + 0.32vw, 1.41rem);
+	--step-2: clamp(1.44rem, 1.32rem + 0.49vw, 1.76rem);
+	--step-3: clamp(1.73rem, 1.55rem + 0.72vw, 2.2rem);
+	--step-4: clamp(2.07rem, 1.81rem + 1.04vw, 2.75rem);
+	--step-5: clamp(2.49rem, 2.12rem + 1.45vw, 3.43rem);
+	--step-6: clamp(2.99rem, 2.48rem + 2.01vw, 4.29rem);
+}
+
+body {
+	padding: 6rem 2rem 2rem 2rem;
+	background: linear-gradient(15deg, #185687 0%, #50a0c7 100%) no-repeat center
+		center / cover;
+	min-height: 100%;
+	position: relative;
+	color: #707070;
+	font-size: var(--step-1);
+}
+
+body:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 267px;
+	background: url('images/bg.jpg') no-repeat center center / cover;
+}
+
+main {
+	position: relative;
+	padding: 6rem 9rem;
+	background: #fff;
+	box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.16);
+	max-width: 1200px;
+	margin: auto;
+}
+
+@media (max-width: 1160px) {
+	main {
+		padding: 4rem;
+	}
+}
+
+@media (max-width: 767px) {
+	main {
+		padding: 2rem;
+	}
+}
+
+h1 {
+	color: #000000;
+	text-align: center;
+	font-weight: normal;
+	font-size: var(--step-6);
+	line-height: 1.2;
+	margin-top: 0;
+	padding-bottom: 2rem;
+	margin-bottom: 2rem;
+	border-bottom: 3px solid #e5e5e5;
+}
+a {
+	color: #68bade;
+}
+small {
+	text-align: center;
+	margin-top: 4rem;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+}
